@@ -8,11 +8,16 @@ using Microsoft.UI.Xaml.Controls;
 using System.Diagnostics;
 using EvergineIntegration.Maui.Controls;
 
-namespace EvergineIntegration.Maui.Controls;
+namespace EvergineIntegration.Maui.Handlers
 {
     public partial class EvergineViewHandler : ViewHandler<EvergineView, SwapChainPanel>
     {
         bool _loaded;
+
+        public EvergineViewHandler(IPropertyMapper mapper, CommandMapper commandMapper = null) 
+            : base(mapper, commandMapper)
+        {
+        }
 
         protected override SwapChainPanel CreatePlatformView()
         {
@@ -62,7 +67,7 @@ namespace EvergineIntegration.Maui.Controls;
         
         void OnPlatformViewPointerReleased(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
-            VirtualView.StartInteraction();
+            VirtualView.StartInteraction();            
         }
 
         void OnPlatformViewPointerMoved(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)

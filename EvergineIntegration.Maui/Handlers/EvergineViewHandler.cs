@@ -4,8 +4,6 @@ using PlatformView = System.Object;
 using PlatformView = System.Object;
 #elif WINDOWS
 using PlatformView = Microsoft.UI.Xaml.Controls.SwapChainPanel;
-#elif NETSTANDARD || !PLATFORM || (NET6_0_OR_GREATER && !IOS && !ANDROID)
-using PlatformView = System.Object;
 #endif
 
 using Microsoft.Maui.Handlers;

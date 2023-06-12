@@ -2,23 +2,32 @@
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
-
-	public MainPage()
+    public MainPage()
 	{
 		InitializeComponent();
 	}
 
-	private void OnCounterClicked(object sender, EventArgs e)
-	{
-		count++;
+    protected override void OnAppearing()
+    {
+        base.OnAppearing();
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+        // Create app
+        MyApplication application = new MyApplication();               
+        EvergineViewl.Application = application;
+    }
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+    void OnEvergineViewPointerPressed(object sender, EventArgs e)
+    {
+        ////((FrameworkElement)sender).ReleasePointerCaptures();
+    }
+
+    void OnResetCameraClicked(object sender, EventArgs e)
+    {        
+    }
+
+    void OnDisplacementChanged(object sender, ValueChangedEventArgs e)
+    {
+        ////_interactionService.Displacement = (float)e.NewValue;
+    }
 }
 

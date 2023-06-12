@@ -1,41 +1,41 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:EvergineIntegration.Maui.Controls"
              x:Class="EvergineIntegration.Maui.MainPage">
 
-    <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
-
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
-
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <controls:EvergineView
+            x:Name="EvergineViewl"
+            Grid.Column="0"
+            DisplayName="DefaultDisplay"/>
+        <StackLayout 
+            Grid.Column="2" 
+            Margin="12">
             <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
-
-            <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
-
+                Margin="0,0,0,12"
+                FontAttributes="Bold"
+                Text="Evergine .NET MAUI integration sample." />
+            <Label 
+                Text="You can move the scene's cameras using W,A,S and D keys while clicking the right mouse button. Use the button below button to reset the cameras to their initial position and orientation." 
+                LineBreakMode="WordWrap" />
             <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
-        </VerticalStackLayout>
-    </ScrollView>
+                Margin="0,12"
+                Padding="12,3"
+                HorizontalOptions="Start"
+                Clicked="OnResetCameraClicked"
+                Text="Reset cameras" />
+            <Label 
+                Text="Displacement:" />
+            <Slider
+                Maximum="10"
+                Minimum="0"
+                ValueChanged="OnDisplacementChanged" />
+        </StackLayout>
+    </Grid>
 
 </ContentPage>

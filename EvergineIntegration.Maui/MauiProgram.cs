@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using EvergineIntegration.Maui.Extensions;
+using Microsoft.Extensions.Logging;
 
 namespace EvergineIntegration.Maui;
 
@@ -9,6 +10,7 @@ public static class MauiProgram
 		var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
+			.UseMauiEvergine()
 			.ConfigureFonts(fonts =>
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
