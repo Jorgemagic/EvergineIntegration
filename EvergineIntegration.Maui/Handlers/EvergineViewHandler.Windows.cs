@@ -53,9 +53,8 @@ namespace EvergineIntegration.Maui.Handlers
 
         public static void MapApplication(EvergineViewHandler handler, EvergineView evergineView)
         {
-            if (!handler._loaded)
-                return;
-
+            //if (!handler._loaded)
+            //    return;            
             handler.UpdateApplication(handler.PlatformView, evergineView.Application, evergineView.DisplayName);
         }
 
@@ -63,6 +62,7 @@ namespace EvergineIntegration.Maui.Handlers
         {
             _loaded = true;
             UpdateValue(nameof(EvergineView.Application));
+            //this.UpdateApplication(PlatformView, VirtualView.Application, VirtualView.DisplayName);
         }
         
         void OnPlatformViewPointerReleased(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
@@ -84,7 +84,7 @@ namespace EvergineIntegration.Maui.Handlers
         {
             GraphicsContext graphicsContext = new DX11GraphicsContext();
             application.Container.RegisterInstance(graphicsContext);
-            graphicsContext.CreateDevice();
+            graphicsContext.CreateDevice(new ValidationLayer(ValidationLayer.NotifyMethod.Trace));
 
             // Create Services
             WinUIWindowsSystem windowsSystem = new WinUIWindowsSystem();
@@ -118,8 +118,8 @@ namespace EvergineIntegration.Maui.Handlers
             SwapChainDescription swapChainDescription = new SwapChainDescription()
             {
                 SurfaceInfo = surface.SurfaceInfo,
-                Width = surface.Width,
-                Height = surface.Height,
+                Width = 200, // surface.Width,
+                Height = 200, //surface.Height,
                 ColorTargetFormat = PixelFormat.R8G8B8A8_UNorm,
                 ColorTargetFlags = TextureFlags.RenderTarget | TextureFlags.ShaderResource,
                 DepthStencilTargetFormat = PixelFormat.D24_UNorm_S8_UInt,
