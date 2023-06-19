@@ -9,12 +9,12 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <controls:EvergineView
+        <!--<controls:EvergineView
             x:Name="EvergineViewl"
             Grid.Column="0"
             HeightRequest="200"
             WidthRequest="200"
-            DisplayName="DefaultDisplay"/>
+            DisplayName="DefaultDisplay"/>-->
         <StackLayout 
             Grid.Column="2" 
             Margin="12">

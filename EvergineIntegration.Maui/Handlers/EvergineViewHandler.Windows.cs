@@ -55,16 +55,15 @@ namespace EvergineIntegration.Maui.Handlers
         {
             //if (!handler._loaded)
             //    return;            
-            handler.UpdateApplication(handler.PlatformView, evergineView.Application, evergineView.DisplayName);
         }
 
         void OnPlatformViewLoaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
         {
             _loaded = true;
             UpdateValue(nameof(EvergineView.Application));
-            //this.UpdateApplication(PlatformView, VirtualView.Application, VirtualView.DisplayName);
+            this.UpdateApplication(PlatformView, VirtualView, VirtualView.DisplayName);
         }
-        
+
         void OnPlatformViewPointerReleased(object sender, Microsoft.UI.Xaml.Input.PointerRoutedEventArgs e)
         {
             VirtualView.StartInteraction();            
@@ -80,8 +79,12 @@ namespace EvergineIntegration.Maui.Handlers
             VirtualView.EndInteraction();
         }
 
-        void UpdateApplication(SwapChainPanel swapChainPanel, Evergine.Framework.Application application, string displayName)
+        void UpdateApplication(SwapChainPanel swapChainPanel, EvergineView view, string displayName)
         {
+            // Create app
+            MyApplication application = new MyApplication();
+            view.Application = application;
+
             GraphicsContext graphicsContext = new DX11GraphicsContext();
             application.Container.RegisterInstance(graphicsContext);
             graphicsContext.CreateDevice(new ValidationLayer(ValidationLayer.NotifyMethod.Trace));
