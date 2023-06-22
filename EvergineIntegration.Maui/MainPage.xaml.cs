@@ -9,7 +9,11 @@ public partial class MainPage : ContentPage
 
     protected override void OnAppearing()
     {
-        base.OnAppearing();        
+        base.OnAppearing();
+
+        // Create app
+        MyApplication application = new MyApplication();
+        EvergineViewl.Application = application;
     }
 
     void OnEvergineViewPointerPressed(object sender, EventArgs e)
