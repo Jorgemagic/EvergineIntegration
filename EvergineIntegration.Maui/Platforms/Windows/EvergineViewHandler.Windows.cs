@@ -119,7 +119,6 @@ namespace EvergineIntegration.Maui.Handlers
                 var gameTime = clockTimer.Elapsed;
                 clockTimer.Restart();
 
-
                 view.Application.UpdateFrame(gameTime);
                 view.Application.DrawFrame(gameTime);
 
@@ -146,6 +145,7 @@ namespace EvergineIntegration.Maui.Handlers
 
             var swapChain = graphicsContext.CreateSwapChain(swapChainDescription);
             swapChain.VerticalSync = true;
+            swapChain.FrameBuffer.IntermediateBufferAssociated = false;
             surface.NativeSurface.SwapChain = swapChain;
 
             var graphicsPresenter = application.Container.Resolve<GraphicsPresenter>();

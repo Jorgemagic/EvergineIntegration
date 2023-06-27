@@ -12,8 +12,6 @@
         <controls:EvergineView
             x:Name="EvergineViewl"
             Grid.Column="0"
-            HeightRequest="200"
-            WidthRequest="200"
             DisplayName="DefaultDisplay"/>
         <StackLayout 
             Grid.Column="2" 
