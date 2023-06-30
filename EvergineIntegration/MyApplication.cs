@@ -32,8 +32,8 @@ namespace EvergineIntegration
             var assetsService = this.Container.Resolve<AssetsService>();
 
             // Navigate to scene
-            //var scene = assetsService.Load<MyScene>(EvergineContent.Scenes.MyScene_wescene);
-            var scene = new Scene();
+            var scene = assetsService.Load<MyScene>(EvergineContent.Scenes.MyScene_wescene);
+            /*var scene = new Scene();
             scene.RegisterManagers();
             Entity camera = new Entity()
                 .AddComponent(new Transform3D())
@@ -42,7 +42,7 @@ namespace EvergineIntegration
                     BackgroundColor = Evergine.Common.Graphics.Color.CornflowerBlue,
                 });
 
-            scene.Managers.EntityManager.Add(camera);
+            scene.Managers.EntityManager.Add(camera);*/
 
             ScreenContext screenContext = new ScreenContext(scene);
             screenContextManager.To(screenContext);

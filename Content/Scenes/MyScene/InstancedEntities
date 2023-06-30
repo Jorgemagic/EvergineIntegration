@@ -7,11 +7,11 @@ Items:
     IsStatic: false
     Components:
       - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
-        Id: 809f1d2c-2305-4916-acfe-f81399ffb235
+        Id: 6b9f2fe4-ef4a-4f3b-88b0-6e5d44b1c005
         IsEnabled: true
         LocalOrientation:
-          W: 0.923879564
-          X: -0.382683396
+          W: 0.923879504
+          X: -0.382683456
           Y: 0.0
           Z: 0.0
         LocalPosition:
@@ -23,9 +23,9 @@ Items:
           Y: 1.0
           Z: 1.0
       - !Evergine.Components.Cameras.FreeCamera3D,Evergine.Components
-        Id: 07d3e21d-cd4b-412f-88a6-1331d8afa583
+        Id: 0d1cf75b-85e7-4b85-a7fd-866e45531e69
         IsEnabled: true
-        MaxPitch: 1.49225616
+        MaxPitch: 1.49225652
         MouseSensibility: 0.0299999993
         MoveSpeed: 5.0
         RotationSpeed: 5.0
@@ -33,7 +33,7 @@ Items:
         TouchSensibility: 1.0
         UpdateOrder: 0.5
       - !Evergine.Framework.Graphics.Camera3D,Evergine.Framework
-        Id: 5b10653e-93d2-48e7-884f-a07b2ac173ee
+        Id: b1f0bb41-aecb-454f-a1f7-3cf8c3f1ffb0
         Aperture: 1.0
         AutoDepthBounds: false
         AutoExposureEnabled: false
@@ -71,33 +71,206 @@ Items:
         TagFilter: null
         UsePhysicalParameters: false
     Children: []
-    Id: 9841b6b3-9c09-4b60-b442-a5c63257ee02
+    Id: 7a094706-9588-48fe-8d9e-5693813dba2b
+  - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
+    Name: SunLight
+    Tag: null
+    IsEnabled: true
+    IsStatic: false
+    Components:
+      - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
+        Id: 5ba45b67-7a7d-43a4-a592-6bd7975d0eb7
+        IsEnabled: true
+        LocalOrientation:
+          W: 0.582563519
+          X: -0.271654308
+          Y: 0.694271922
+          Z: 0.323743761
+        LocalPosition:
+          X: 4.0
+          Y: 4.0
+          Z: 4.0
+        LocalScale:
+          X: 1.0
+          Y: 1.0
+          Z: 1.0
+      - !Evergine.Framework.Graphics.PhotometricDirectionalLight,Evergine.Framework
+        Id: 972f26df-f128-4073-bf5c-101647277f21
+        Color:
+          A: 0
+          B: 228
+          G: 240
+          R: 249
+        ColorByTemperature: true
+        DebugMode: false
+        GammaDistribution: 0.800000012
+        Illuminance: 3.0
+        Intensity: 3.0
+        IsEnabled: true
+        IsShadowEnabled: true
+        LinearColor:
+          A: 0.0
+          B: 0.77908951
+          G: 0.874792635
+          R: 0.9453125
+        ShadowBias: 0.00499999989
+        ShadowDistance: 80.0
+        ShadowOpacity: 1.0
+        SplitDistance:
+          - 0.0
+          - 0.0
+          - 0.0
+          - 0.0
+        Temperature: 6500.0
+      - !Evergine.Framework.Graphics.SunComponent,Evergine.Framework
+        Id: 0213e1b6-811d-4401-9412-fa98c58c26fb
+        IsEnabled: true
+    Children: []
+    Id: 16af249f-10df-4e83-974e-32beca7a3fa1
+  - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
+    Name: SkyAtmosphere
+    Tag: Skybox
+    IsEnabled: true
+    IsStatic: false
+    Components:
+      - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
+        Id: 2eb9fb1b-658a-4fd2-a971-e0beeea8b52d
+        IsEnabled: true
+        LocalOrientation:
+          W: 1.0
+          X: 0.0
+          Y: 0.0
+          Z: 0.0
+        LocalPosition:
+          X: 0.0
+          Y: 0.0
+          Z: 0.0
+        LocalScale:
+          X: 1.0
+          Y: 1.0
+          Z: 1.0
+      - !Evergine.Components.Graphics3D.MaterialComponent,Evergine.Framework
+        Id: 332069d4-9cb9-45de-9b40-58e1e96a7587
+        AsignedTo: Default
+        IsEnabled: true
+        Material: d54e6571-1a22-487a-a8bf-0f506b9ece3a
+        UseCopy: false
+      - !Evergine.Components.Graphics3D.SphereMesh,Evergine.Components
+        Id: 0681f14d-8554-48b7-81ab-9f46be0e5a96
+        Diameter: 1.0
+        IsEnabled: true
+        Tessellation: 32
+        UMirror: false
+        VMirror: false
+      - !Evergine.Components.Graphics3D.MeshRenderer,Evergine.Framework
+        Id: 682d7ad1-bc23-4983-899e-6a419e39a5fb
+        DebugBoundingbox: true
+        IsCullingEnabled: false
+        IsEnabled: true
+        OrderBias: 0
+        RenderFlags: CastShadows
+      - !Evergine.Components.Environment.AtmosphereController,Evergine.Components
+        Id: 127130a6-a473-473d-bd39-8c8cb10ba4bf
+        AtmosphereRadiusInKm: 6471.0
+        IsEnabled: true
+        MiePreferredScatteringDirection: 0.758000016
+        MieScaleHeight: 1200.0
+        MieScatteringCoefficient: 21.0
+        ModifySunColor: true
+        PlanetRadiusInKm: 6371.0
+        RayleighScaleHeight: 8000.0
+        RayleighScatteringCoefficient:
+          X: 5.5
+          Y: 13.0
+          Z: 22.3999996
+        SunDiskEnabled: true
+        SunDiskSize: 0.0199999996
+        SunIntensity: 22.0
+        UpdateOrder: 0.5
+    Children: []
+    Id: 1e3fee46-5507-4ec1-ab39-023b73ea80cc
+  - !Evergine.Framework.Assets.AssetSources.Entities.EntityItemModel,Evergine.Framework
+    Name: teapot
+    Tag: null
+    IsEnabled: true
+    IsStatic: false
+    Components:
+      - !Evergine.Framework.Graphics.Transform3D,Evergine.Framework
+        Id: 8a8141a6-aa7c-45aa-a34c-0b804831c0be
+        IsEnabled: true
+        LocalOrientation:
+          W: 1.0
+          X: 0.0
+          Y: 0.0
+          Z: 0.0
+        LocalPosition:
+          X: 0.0
+          Y: 0.0
+          Z: 0.0
+        LocalScale:
+          X: 1.0
+          Y: 1.0
+          Z: 1.0
+      - !Evergine.Components.Graphics3D.MaterialComponent,Evergine.Framework
+        Id: 16d08b81-151f-4251-8aba-2f797cbde063
+        AsignedTo: Default
+        IsEnabled: true
+        Material: 02181b63-5a0e-46d1-9208-d92376ae33fb
+        UseCopy: false
+      - !Evergine.Components.Graphics3D.TeapotMesh,Evergine.Components
+        Id: fc65714f-2e2f-4468-b63c-e3cb6c1177e7
+        IsEnabled: true
+        Size: 1.0
+        Tessellation: 16
+      - !Evergine.Components.Graphics3D.MeshRenderer,Evergine.Framework
+        Id: 0db504eb-a023-4260-b3d4-c44a9633f494
+        DebugBoundingbox: true
+        IsCullingEnabled: true
+        IsEnabled: true
+        OrderBias: 0
+        RenderFlags: CastShadows
+      - !Evergine.Components.Graphics3D.Spinner,Evergine.Components
+        Id: d04b84d7-5d10-4139-b21c-c3f107508678
+        AxisIncrease:
+          X: 1.0
+          Y: 2.0
+          Z: 3.0
+        IsEnabled: true
+        UpdateOrder: 0.5
+    Children: []
+    Id: 21448e85-681f-4597-a8ac-e82bddeb90d3
 Managers:
+  - !Evergine.Framework.Managers.EntityManager,Evergine.Framework
+    Id: ce09f78b-95e1-44d5-859d-f2a866a2bdf7
+    IsEnabled: true
   - !Evergine.Framework.Managers.AssetSceneManager,Evergine.Framework
-    Id: 4ae9964a-5a8a-463f-b714-050389b3b68c
+    Id: 098b9891-92ba-4f13-9bd2-4e0eb957f494
     IsEnabled: true
   - !Evergine.Framework.Managers.BehaviorManager,Evergine.Framework
-    Id: 5ae9e102-b637-4820-8f10-68680d16ffaf
-    IsEnabled: true
-  - !Evergine.Framework.Managers.EntityManager,Evergine.Framework
-    Id: 54e6745a-92b2-4006-a947-cb3ea9b4e10f
+    Id: f47cab72-4ebd-43e8-9c09-c8bd26db1324
     IsEnabled: true
   - !Evergine.Framework.Managers.RenderManager,Evergine.Framework
-    Id: 74d7b50a-648a-4ed3-9529-2bc370878c12
+    Id: a78c5e2f-83ad-4d9d-8c6a-c59c1c620048
     DebugLines: false
     IsEnabled: true
-  - !Evergine.Framework.Managers.ShadowMapManager,Evergine.Framework
-    Id: 644aaced-4367-45ac-b0af-d9a6ecce076c
-    AutoDepthBounds: false
-    DirectionalResolution: Size_1024
-    IsEnabled: true
-    PunctualResolution: Size_512
-    ShadowFilter: PCF3x3
-    SpotResolution: Size_512
   - !Evergine.Framework.Managers.VirtualScreenManager,Evergine.Framework
-    Id: b4f40b87-f84b-4aa5-a73d-f1886ee09e1c
+    Id: 68ca6531-490a-4353-b122-e548c97ac82e
     Expand: true
     IsEnabled: false
     Stretch: Uniform
     VirtualHeight: 0.0
     VirtualWidth: 0.0
+  - !Evergine.Framework.Managers.EnvironmentManager,Evergine.Framework
+    Id: 24238085-6e35-4165-bd26-2891b723cc36
+    IBLReflectionProbe: 6939b685-632f-4be1-b89d-5b863d80d961
+    IntensityMultiplier: 1.0
+    IsEnabled: true
+    Strategy: Automatically
+  - !Evergine.Framework.Managers.ShadowMapManager,Evergine.Framework
+    Id: f7d08835-7588-40b3-9129-d03d0b548165
+    AutoDepthBounds: false
+    DirectionalResolution: Size_2048
+    IsEnabled: true
+    PunctualResolution: Size_512
+    ShadowFilter: PCF3x3
+    SpotResolution: Size_512
